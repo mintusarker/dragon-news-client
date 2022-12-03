@@ -11,40 +11,40 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
-        path : '/',
-        element : <Main></Main>,
-        children : [
+        path: '/',
+        element: <Main></Main>,
+        children: [
             {
-                path : '/',
-                element : <Home></Home>,
-                loader : () => fetch('http://localhost:5000/news')
+                path: '/',
+                element: <Home></Home>,
+                loader: () => fetch('https://dragon-news-server-three-rouge.vercel.app/news')
             },
             {
-                path : '/category/:id',
-                element : <Category></Category>,
-                loader : ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                path: '/category/:id',
+                element: <Category></Category>,
+                loader: ({ params }) => fetch(`https://dragon-news-server-three-rouge.vercel.app/category/${params.id}`)
             },
             {
-                path : '/news/:id',
-                element : <PrivateRoute><News></News></PrivateRoute>,
-                loader : ({params}) => fetch(`http://localhost:5000/news/${params.id}`)
+                path: '/news/:id',
+                element: <PrivateRoute><News></News></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://dragon-news-server-three-rouge.vercel.app/news/${params.id}`)
             },
             {
-                path : '/login',
-                element : <Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
                 path: '/register',
-                element : <Register></Register>
-                
+                element: <Register></Register>
+
             },
             {
-                path : '/terms',
-                element : <TermsAndConditions></TermsAndConditions>
+                path: '/terms',
+                element: <TermsAndConditions></TermsAndConditions>
             },
             {
-                path : '/profile',
-                element : <PrivateRoute><Profile></Profile></PrivateRoute>
+                path: '/profile',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
             }
         ]
     }
